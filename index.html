@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Untuk Nadwah 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Indie Flower', cursive;
+      background: linear-gradient(to bottom, #ffe6f0, #ffcce0);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 100px;
+      color: #880e4f;
+      font-size: 36px;
+    }
+
+    #text {
+      font-size: 24px;
+      margin-top: 40px;
+      color: #ad1457;
+      min-height: 60px;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 20px;
+      background-color: #ec407a;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #d81b60;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      transform: rotate(45deg);
+      animation: fall 5s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        opacity: 1;
+      }
+      100% {
+        top: 110%;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hai Nadwah ✨</h1>
+  <div id="text"></div>
+  <button onclick="nextText()">Klik yaa ❤️</button>
+
+  <script>
+    const texts = [
+      "Halo Nadwah...",
+      "Akmal yang buat ini website anjas jago kan",
+      "Khusus buat kamu seorang 🫶",
+      "Aku minta maaf yaa...buat semalem jangan ngambek lagii huhuhuhu 😢",
+      "Aku harap kamu maafin akuuu sayang cantik blelelelelelelellelelelelelelele 🌸"
+    ];
+
+    let index = 0;
+
+    function nextText() {
+      if (index < texts.length) {
+        document.getElementById("text").innerHTML = texts[index];
+        index++;
+      } else {
+        document.getElementById("text").innerHTML = "Udah habis tapi pesanku belum selesai buat kamu... 😔❤️";
+      }
+    }
+
+    // Create falling hearts
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 300);
+  </script>
+</body>
+</html>
